@@ -68,10 +68,11 @@ class AdminIndexView(admin.AdminIndexView):
         login.logout_user()
         return redirect(url_for('.index'))
 
-# login_manager = LoginManager()
-# login_manager.init_app(app)
-# login_manager.login_view = 'signin'
 
+class SymbolModelView(sqla.ModelView):
+
+    def is_accessible(self):
+        return login.current_user.is_authenticated()
 
 # Routes section
 
@@ -89,6 +90,9 @@ admin = admin.Admin(app, 'Example: Auth', index_view=AdminIndexView(), base_temp
 
 # Add view
 admin.add_view(UserModelView(User, db.session))
+admin.add_view(SymbolModelView(Symbol, db.session))
+
+
 
 
 if __name__ == '__main__':
