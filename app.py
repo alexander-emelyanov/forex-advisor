@@ -74,6 +74,12 @@ class SymbolModelView(sqla.ModelView):
     def is_accessible(self):
         return login.current_user.is_authenticated()
 
+
+class MarketModelView(sqla.ModelView):
+
+    def is_accessible(self):
+        return login.current_user.is_authenticated()
+
 # Routes section
 
 
@@ -91,6 +97,7 @@ admin = admin.Admin(app, 'Example: Auth', index_view=AdminIndexView(), base_temp
 # Add view
 admin.add_view(UserModelView(User, db.session))
 admin.add_view(SymbolModelView(Symbol, db.session))
+admin.add_view(MarketModelView(Market, db.session))
 
 
 

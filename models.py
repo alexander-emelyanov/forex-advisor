@@ -1,11 +1,25 @@
 from app import db, bcrypt
 
 
+class Market(db.Model):
+
+    __tablename__ = 'market'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+
+    def __repr__(self):
+        return self.name
+
+
 class Symbol(db.Model):
 
     __tablename__ = 'symbol'
 
     id = db.Column(db.Integer, primary_key=True)
+    market_id = db.Column(db.Integer, db.ForeignKey(Market.__tablename__ + ".id"), nullable=False)
+    market = db.relationship('Market')
+    code = db.Column(db.String, nullable=False)
     name = db.Column(db.String, nullable=False)
 
 
