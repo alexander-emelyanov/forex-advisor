@@ -29,8 +29,13 @@ def create_admin():
 def cleardb():
     print('Each entity stored on DB will be removed...')
     try:
+        # Symbols removing
+        num_rows_deleted = db.session.query(Symbol).delete()
+        print("{0} symbols removed".format(num_rows_deleted))
+        # Markets removing
         num_rows_deleted = db.session.query(Market).delete()
         print("{0} markets removed".format(num_rows_deleted))
+        # Final action...
         db.session.commit()
     except SQLAlchemyError as err:
         db.session.rollback()
