@@ -69,7 +69,7 @@ def index():
 init_login()
 
 # Create admin
-admin = admin.Admin(app, 'Example: Auth', index_view=AdminIndexView(), base_template='my_master.html', template_mode='bootstrap3')
+admin = admin.Admin(app, 'Forex Advisor: Control Panel', index_view=AdminIndexView(), base_template='my_master.html', template_mode='bootstrap3')
 
 # Add view
 admin.add_view(UserModelView(User, db.session))
@@ -81,7 +81,6 @@ admin.add_view(DirectionModelView(Direction, db.session))
 admin.add_view(DurationModelView(Duration, db.session))
 admin.add_view(PredictorModelView(Predictor, db.session))
 admin.add_view(SignalModelView(Signal, db.session))
-
 
 
 if __name__ == '__main__':
