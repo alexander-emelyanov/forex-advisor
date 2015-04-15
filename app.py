@@ -13,9 +13,8 @@ from models import *
 
 # Flask admin packages
 import flask_admin as admin
-import flask_login as login
-from flask_admin.contrib import sqla
 from flask_admin import helpers, expose
+from adm.models import *
 
 
 # Initialize flask-login
@@ -28,17 +27,6 @@ def init_login():
     @login_manager.user_loader
     def load_user(user_id):
         return db.session.query(User).get(user_id)
-
-
-# Create customized model view class
-class UserModelView(sqla.ModelView):
-
-    def on_model_change(self, form, model, is_created):
-        if is_created:
-            model.set_password(password=form.password.data)
-
-    def is_accessible(self):
-        return login.current_user.is_authenticated()
 
 
 # Create customized index view class that handles login & registration
@@ -69,17 +57,6 @@ class AdminIndexView(admin.AdminIndexView):
         return redirect(url_for('.index'))
 
 
-class SymbolModelView(sqla.ModelView):
-
-    def is_accessible(self):
-        return login.current_user.is_authenticated()
-
-
-class MarketModelView(sqla.ModelView):
-
-    def is_accessible(self):
-        return login.current_user.is_authenticated()
-
 # Routes section
 
 
@@ -99,6 +76,11 @@ admin.add_view(UserModelView(User, db.session))
 admin.add_view(SymbolModelView(Symbol, db.session))
 admin.add_view(MarketModelView(Market, db.session))
 
+# Import ModelViews for Flask-Admin
+admin.add_view(DirectionModelView(Direction, db.session))
+admin.add_view(DurationModelView(Duration, db.session))
+admin.add_view(PredictorModelView(Predictor, db.session))
+admin.add_view(SignalModelView(Signal, db.session))
 
 
 
