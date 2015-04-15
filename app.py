@@ -1,5 +1,5 @@
 import os
-from flask import Flask, session, request, flash, url_for, redirect, render_template, abort ,g
+from flask import Flask, session, request, flash, url_for, redirect, render_template, abort g
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.bcrypt import Bcrypt
 
@@ -14,7 +14,7 @@ from models import *
 # Flask admin packages
 import flask_admin as admin
 from flask_admin import helpers, expose
-from adm.models import *
+from admin_models import *
 
 
 # Initialize flask-login
