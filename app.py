@@ -1,5 +1,5 @@
 import os
-from flask import Flask, session, request, flash, url_for, redirect, render_template, abort g
+from flask import Flask, session, request, flash, url_for, redirect, render_template, abort, g
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.bcrypt import Bcrypt
 
