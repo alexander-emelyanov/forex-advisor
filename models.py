@@ -23,6 +23,45 @@ class Symbol(db.Model):
     name = db.Column(db.String, nullable=False)
 
 
+class Direction(db.Model):
+
+    __tablename__ = 'direction'
+    id = db.Column(db.Integer, primary_key=True)
+    code = db.Column(db.String, nullable=False)
+    name = db.Column(db.String, nullable=False)
+
+
+class Duration(db.Model):
+
+    __tablename__ = 'duration'
+    id = db.Column(db.Integer, primary_key=True)
+    code = db.Column(db.String, nullable=False)
+    name = db.Column(db.String, nullable=False)
+
+
+class Predictor(db.Model):
+
+    __tablename__ = 'predictor'
+    id = db.Column(db.Integer, primary_key=True)
+    code = db.Column(db.String, nullable=False)
+    name = db.Column(db.String, nullable=False)
+
+
+class Signal(db.Model):
+
+    __tablename__ = 'signal'
+
+    id = db.Column(db.Integer, primary_key=True)
+    time_of_creation = db.Column(db.DateTime, nullable=False)
+    opening_time = db.Column(db.DateTime, nullable=False)
+    closing_time = db.Column(db.DateTime, nullable=False)
+    symbol_id = db.Column(db.Integer, db.ForeignKey(Symbol.__tablename__ + ".id"), nullable=False)
+    direction_id = db.Column(db.Integer, db.ForeignKey(Direction.__tablename__ + ".id"), nullable=False)
+    duration_id = db.Column(db.Integer, db.ForeignKey(Duration.__tablename__ + ".id"), nullable=False)
+    predictor_id = db.Column(db.Integer, db.ForeignKey(Predictor.__tablename__ + ".id"), nullable=False)
+
+
+
 class User(db.Model):
 
     __tablename__ = 'user'
