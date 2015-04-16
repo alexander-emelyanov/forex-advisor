@@ -9,10 +9,32 @@ api = Api(app)
 # SCHEMAS
 
 
-class SignalSchema(Schema):
+class SimpleDictionarySchema(Schema):
 
     class Meta:
-        fields = ('id', 'time_of_creation', 'opening_time', 'closing_time', 'symbol_id')
+        fields = ('id', 'code', 'name')
+
+
+class SignalSchema(Schema):
+
+    symbol = fields.Nested(SimpleDictionarySchema)
+    direction = fields.Nested(SimpleDictionarySchema)
+    duration = fields.Nested(SimpleDictionarySchema)
+    predictor = fields.Nested(SimpleDictionarySchema)
+
+    class Meta:
+        fields = ('id', 'time_of_creation', 'opening_time', 'closing_time', 'symbol', 'direction', 'duration',
+                  'predictor')
+
+
+# RESOURCES
+class SymbolResource(Resource):
+
+    def get(self):
+        symbols = Symbol.query.all()
+        serializer = SimpleDictionarySchema(many=True)
+        result = serializer.dump(symbols)
+        return jsonify({"symbols": result.data})
 
 
 class SignalsResource(Resource):
@@ -24,4 +46,5 @@ class SignalsResource(Resource):
         result = serializer.dump(signals)
         return jsonify({"signals": result.data})
 
-api.add_resource(SignalsResource, '/api')
+api.add_resource(SymbolResource, '/api/symbols')
+api.add_resource(SignalsResource, '/api/signals')
