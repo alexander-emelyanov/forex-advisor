@@ -83,6 +83,10 @@ admin.add_view(PredictorModelView(Predictor, db.session))
 admin.add_view(SignalModelView(Signal, db.session))
 
 
+# API Components
+from api import *
+
+
 if __name__ == '__main__':
     print("Used config object: {}".format(os.environ['APP_SETTINGS']))
     app.run()
