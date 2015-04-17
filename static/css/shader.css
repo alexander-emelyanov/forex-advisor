@@ -750,6 +750,7 @@ a:focus {
     background: #4F9D8B;
 }
 
-.container{
+.bg-08{
     background: rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
 }
