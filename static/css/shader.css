@@ -749,3 +749,7 @@ a:focus {
 .theme-sea .social-links > a:focus {
     background: #4F9D8B;
 }
+
+.container{
+    background: rgba(0, 0, 0, 0.5);
+}
