@@ -1,1 +1,102 @@
-<h1>Welcome to FOREX Advisor REST API</h1>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Forex Advisor - Universal Application for Traders</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="shortcut icon">
+        <!-- Custom fonts -->
+        <link href="http://fonts.googleapis.com/css?family=Roboto:300,100" rel="stylesheet">
+        <!--<link href="css/social-font.css" rel="stylesheet">-->
+        <!-- Bootstrap stylesheets -->
+        <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+        <!-- Template stylesheets -->
+        <link href="{{ url_for('static', filename='css/shader.css') }}" rel="stylesheet">
+    </head>
+
+    <body class="theme-fire">
+        <!-- Background container -->
+        <div id="background-container" class="background-container">
+            <div id="background-output" class="background-output"></div>
+            <div id="vignette" class="background-vignette"></div>
+            <div id="noise" class="background-noise"></div>
+        </div>
+        <!-- /Background container -->
+
+        <!-- Main content -->
+        <div class="content">
+            <div class="container">
+                <!-- Header -->
+                <div class="row">
+                    <h1 class="header col-sm-8 col-sm-offset-2">Forex Advisor</h1>
+                    <h2>Best FOREX app 2016!</h2>
+                </div>
+                <!-- /Header -->
+
+                <!-- Description -->
+                <div class="row">
+                    <p class="description col-sm-8 col-sm-offset-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, non, natus, repellendus in blanditiis explicabo dignissimos amet tenetur quia aperiam culpa cum illum numquam nesciunt voluptatibus itaque nemo beatae inventore!</p>
+                </div>
+                <!-- /Description -->
+            </div>
+
+            <!-- Countdown -->
+            <div class="countdown" id="countdown">
+                <div class="container">
+                    <div class="row">
+                        <div class="countdown-item col-sm-3 col-xs-6">
+                            <div class="countdown-number" id="countdown-days"></div>
+                            <div class="countdown-label">days</div>
+                        </div>
+
+                        <div class="countdown-item col-sm-3 col-xs-6">
+                            <div class="countdown-number" id="countdown-hours"></div>
+                            <div class="countdown-label">hours</div>
+                        </div>
+
+                        <div class="countdown-item col-sm-3 col-xs-6">
+                            <div class="countdown-number" id="countdown-minutes"></div>
+                            <div class="countdown-label">minutes</div>
+                        </div>
+
+                        <div class="countdown-item col-sm-3 col-xs-6">
+                            <div class="countdown-number" id="countdown-seconds"></div>
+                            <div class="countdown-label">seconds</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Countdown -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="form-and-links-container col-sm-8 col-sm-offset-2">
+                        <!-- Subscription form -->
+                        <div class="row">
+                            <form class="subscription-form" id="subscription-form" novalidate>
+                                <div class="input-group col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0">
+                                    <input type="email" class="subscription-form-email form-control" id="subscription-form-email" name="email" placeholder="Enter email to sign up for news">
+                                    <span class="input-group-btn">
+                                        <button class="subscription-form-submit btn" id="subscription-form-submit">Subscribe</button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /Subscription form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Main content -->
+
+        <!-- Scripts -->
+        <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.countdown.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/placeholders.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/flat-surface-shader.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.config.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/shader.js') }}"></script>
+    </body>
+</html>
