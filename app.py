@@ -64,9 +64,10 @@ class AdminIndexView(admin.AdminIndexView):
 def index():
     return render_template('index.html')
 
+
 @app.route('/robots.txt')
-def index():
-    return render_template('robots.txt')
+def robots():
+    return render_template('robots.html')
 
 
 # Initialize flask-login
