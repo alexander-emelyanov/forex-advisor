@@ -1,5 +1,5 @@
 import os
-from flask import Flask, session, request, flash, url_for, redirect, render_template, abort, g
+from flask import Flask, session, request, flash, url_for, redirect, render_template, abort, g, send_from_directory
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.bcrypt import Bcrypt
 
@@ -66,8 +66,8 @@ def index():
 
 
 @app.route('/robots.txt')
-def robots():
-    return render_template('robots.html')
+def static_from_root():
+    return send_from_directory(app.static_folder, request.path[1:])
 
 
 # Initialize flask-login
