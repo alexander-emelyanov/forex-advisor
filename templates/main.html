@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Forex Advisor - Universal Application for Traders</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="shortcut icon">
+        <!-- Custom fonts -->
+        <link href="http://fonts.googleapis.com/css?family=Roboto:300,100" rel="stylesheet">
+        <!--<link href="css/social-font.css" rel="stylesheet">-->
+        <!-- Bootstrap stylesheets -->
+        <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+        <!-- Template stylesheets -->
+        <link href="{{ url_for('static', filename='css/shader.css') }}" rel="stylesheet">
+    </head>
+
+    <body class="theme-fire">
+        <!-- Background container -->
+        <div id="background-container" class="background-container">
+            <div id="background-output" class="background-output"></div>
+            <div id="vignette" class="background-vignette"></div>
+            <div id="noise" class="background-noise"></div>
+        </div>
+        <!-- /Background container -->
+
+        <!-- Main content -->
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+        <!-- /Main content -->
+
+        <!-- Scripts -->
+        <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.countdown.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/placeholders.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/flat-surface-shader.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.config.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/shader.js') }}"></script>
+    </body>
+</html>
